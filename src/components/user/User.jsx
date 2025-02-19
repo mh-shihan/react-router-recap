@@ -7,11 +7,13 @@ const User = ({ user }) => {
       <h1 className="text-3xl text-center font-bold">{id}</h1>
       <p className="text-2xl text-center font-bold mb-2">{title}</p>
       <p className="text-xl">{body}</p>
-      <Link to={`userDetails/${id}`}>
-        <button className="w-full border-2 border-red-500 font-bold rounded-xl mt-4 mx-auto">
-          View Details
-        </button>
-      </Link>
+      <div className="flex justify-center ">
+        <Link to={`/userDetails/${id}`}>
+          <button className="w-full border-2 border-red-500 font-bold rounded-xl mt-2 mx-auto p-2">
+            View Details
+          </button>
+        </Link>
+      </div>
     </div>
   );
 };
