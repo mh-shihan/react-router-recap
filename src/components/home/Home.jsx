@@ -1,10 +1,12 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "../header/Header";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 
 const Home = () => {
-  const asset = useContext(AuthContext);
+  const { myName } = useContext(AuthContext);
+  const location = useLocation().pathname;
+
   return (
     <div>
       <Header></Header>
@@ -12,7 +14,9 @@ const Home = () => {
         This Home Page
       </h1> */}
       {<Outlet></Outlet>}
-      <h1 className="text-5xl text-red-500 text-center"> {asset} </h1>
+      {location === "/" && (
+        <h1 className="text-5xl text-red-500 text-center"> {myName} </h1>
+      )}
     </div>
   );
 };
