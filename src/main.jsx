@@ -8,6 +8,7 @@ import Users from "./components/users/Users";
 import UserDetails from "./components/userDetails/UserDetails";
 import SignUp from "./components/signup/SignUp";
 import UpdateForm from "./components/update-form/UpdateForm";
+import AuthProvider from "./providers/AuthProvider";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <AuthProvider>
+      <RouterProvider router={router}></RouterProvider>
+    </AuthProvider>
   </StrictMode>
 );

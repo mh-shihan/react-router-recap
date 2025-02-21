@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
-    <div className="text-xl flex gap-6 justify-center mt-4  ">
+    <div className="text-xl flex gap-6 justify-center my-4  ">
       <NavLink
         className={({ isActive }) =>
           isActive ? "text-amber-600 underline" : ""
