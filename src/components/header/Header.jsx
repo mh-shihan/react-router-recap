@@ -1,11 +1,48 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const Header = () => {
   return (
     <div className="text-xl flex gap-6 justify-center mt-4  ">
-      <Link to="/">Home</Link>
-      <Link to="/contact">Contact</Link>
-      <Link to="/users">Users</Link>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "text-amber-600 underline" : ""
+        }
+        to="/"
+      >
+        Home
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "text-amber-600 underline" : ""
+        }
+        to="/contact"
+      >
+        Contact
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "text-amber-600 underline" : ""
+        }
+        to="/users"
+      >
+        Users
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "text-amber-600 underline" : ""
+        }
+        to="/update-form"
+      >
+        Update Form
+      </NavLink>
+      <NavLink
+        className={({ isActive }) =>
+          isActive ? "text-amber-600 underline" : ""
+        }
+        to="/signup"
+      >
+        Sign Up
+      </NavLink>
     </div>
   );
 };

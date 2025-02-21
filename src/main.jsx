@@ -6,6 +6,8 @@ import Home from "./components/home/Home";
 import Contact from "./components/contact/Contact";
 import Users from "./components/users/Users";
 import UserDetails from "./components/userDetails/UserDetails";
+import SignUp from "./components/signup/SignUp";
+import UpdateForm from "./components/update-form/UpdateForm";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
         element: <UserDetails></UserDetails>,
         loader: ({ params }) =>
           fetch(`https://jsonplaceholder.typicode.com/posts/${params.id}`),
+      },
+      {
+        path: "signup",
+        element: <SignUp></SignUp>,
+      },
+      {
+        path: "update-form",
+        element: <UpdateForm></UpdateForm>,
       },
     ],
   },
