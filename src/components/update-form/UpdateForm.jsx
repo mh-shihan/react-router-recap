@@ -1,7 +1,16 @@
+import ReusableForm from "../reusable-form/ReusableForm";
+
 const UpdateForm = () => {
+  const handleSubmit = (value) => {
+    console.log(value);
+  };
   return (
     <div>
-      <h1>I am from Update form</h1>
+      <ReusableForm
+        formTitle={"Update Form"}
+        submitBtnText={"Update"}
+        handleSubmit={handleSubmit}
+      ></ReusableForm>
     </div>
   );
 };
