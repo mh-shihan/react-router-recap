@@ -1,5 +1,10 @@
 import { createContext } from "react";
-import { getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  getAuth,
+  GoogleAuthProvider,
+  signInWithPopup,
+} from "firebase/auth";
 import { app } from "../firebase/firebase.init";
 
 // eslint-disable-next-line react-refresh/only-export-components
@@ -10,11 +15,15 @@ const googleProvider = new GoogleAuthProvider();
 const AuthProvider = ({ children }) => {
   const myName = "MH Shihan";
 
+  const createUser = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
+  };
+
   const googleSignIn = () => {
     return signInWithPopup(auth, googleProvider);
   };
 
-  const authInfo = { myName, googleSignIn };
+  const authInfo = { myName, googleSignIn, createUser };
 
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>

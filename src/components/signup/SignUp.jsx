@@ -4,10 +4,22 @@ import { AuthContext } from "../../providers/AuthProvider";
 export const GoogleSignUpContext = createContext(null);
 
 const SignUp = () => {
-  const [user, setUser] = useState({});
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, createUser } = useContext(AuthContext);
 
-  const handleSubmit = (value) => {
+  const [user, setUser] = useState({});
+  const [newUser, setNewUser] = useState(null);
+
+  const handleSignup = (value) => {
+    const { email, password } = value;
+    createUser(email, password)
+      .then((userCredential) => {
+        setNewUser(userCredential.user);
+        console.log(userCredential.user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+      });
+
     console.log(value);
   };
 
@@ -27,18 +39,21 @@ const SignUp = () => {
         console.log(error.message);
       });
   };
-  console.log(user);
+  // console.log(user);
   return (
     <div>
       <GoogleSignUpContext.Provider value={handleGoogleButtonClick}>
         <ReusableForm
           formTitle={"Signup Form"}
-          handleSubmit={handleSubmit}
+          handleSignup={handleSignup}
           submitBtnText={"Signup"}
           // component={<GoogleButton />}
         ></ReusableForm>
       </GoogleSignUpContext.Provider>
-      <p className="text-center">{user?.name}</p>
+      {user && <p className="text-center">{user?.name}</p>}
+      <p className="text-center">
+        {newUser && `Welcome ${newUser.email}`}
+      </p>{" "}
     </div>
   );
 };

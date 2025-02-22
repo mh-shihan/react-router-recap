@@ -1,5 +1,5 @@
 import GoogleButton from "../../buttons/GoogleButton";
-const ReusableForm = ({ formTitle, submitBtnText, handleSubmit }) => {
+const ReusableForm = ({ formTitle, submitBtnText, handleSignup }) => {
   const handleLocalSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -8,7 +8,7 @@ const ReusableForm = ({ formTitle, submitBtnText, handleSubmit }) => {
       email: form.email.value,
       password: form.password.value,
     };
-    handleSubmit(value);
+    handleSignup(value);
   };
   return (
     <div className="mt-20 ">
