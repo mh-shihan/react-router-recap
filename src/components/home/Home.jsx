@@ -15,7 +15,10 @@ const Home = () => {
       </h1> */}
       {<Outlet></Outlet>}
       {location === "/" && (
-        <h1 className="text-5xl text-red-500 text-center"> {myName} </h1>
+        <h1 className="text-5xl text-red-500 text-center">
+          {" "}
+          {myName.toUpperCase()}{" "}
+        </h1>
       )}
     </div>
   );
