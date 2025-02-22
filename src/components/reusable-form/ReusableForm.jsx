@@ -1,3 +1,4 @@
+import GoogleButton from "../../buttons/GoogleButton";
 const ReusableForm = ({ formTitle, submitBtnText, handleSubmit }) => {
   const handleLocalSubmit = (e) => {
     e.preventDefault();
@@ -10,10 +11,10 @@ const ReusableForm = ({ formTitle, submitBtnText, handleSubmit }) => {
     handleSubmit(value);
   };
   return (
-    <div className="flex justify-center mt-20 ">
+    <div className="mt-20 ">
       <form
         onSubmit={handleLocalSubmit}
-        className="border-2 p-4 border-fuchsia-500 rounded-lg space-y-4 w-1/4 bg-fuchsia-300"
+        className="mx-auto border-2 p-4 border-fuchsia-500 rounded-lg space-y-4 w-1/4 bg-fuchsia-300 text-white"
       >
         <h1 className="my-1 text-center font-bold text-2xl ">{formTitle}</h1>
         <input
@@ -35,14 +36,17 @@ const ReusableForm = ({ formTitle, submitBtnText, handleSubmit }) => {
           name="password"
         />
         <br />
-        <button className="w-full flex justify-center">
+        <div className="w-full flex justify-center">
           <input
             className="border-2 border-black font-bold rounded-md cursor-pointer mx-auto px-6 py-1"
             type="submit"
             value={submitBtnText}
           />
-        </button>
+        </div>
       </form>
+      <div className="text-center mt-6">
+        <GoogleButton></GoogleButton>
+      </div>
     </div>
   );
 };
